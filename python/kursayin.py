@@ -17,14 +17,14 @@ def snail(matrix):
             res.append(matrix[i][col_begin])
         col_begin += 1
 
-        if row_begin <= row_end:
-            for i in range(col_begin, col_end+1):
-                res.append(matrix[row_begin][i])
+        
+        for i in range(col_begin, col_end+1):
+            res.append(matrix[row_begin][i])
         row_begin += 1
 
-        if col_begin <= col_end:
-            for i in range(row_begin, row_end+1):
-                res.append(matrix[i][col_end])
+        
+        for i in range(row_begin, row_end+1):
+            res.append(matrix[i][col_end])
         col_end -= 1
 
     return res
