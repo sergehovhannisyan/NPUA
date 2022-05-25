@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --font-scale: 1.0
+    }
+
+    html {
+      font-size: calc(16px * var(--font-scale));
+    }
+
+    pre { 
+      font-size: 2rem;
+    }
+
+    @media screen and (max-width: 749px) {
+      html {
+        font-size: calc(10px * var(--font-scale));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <pre class="demo"></pre>
+    <button onclick="tranposeAndPrint()">solution</button>
+  </div>
+  
+  <script>
+    let matrix  =[
+          [1,2,3,4],
+          [6,7,8,9],
+          [10,11,12,13],
+    ]
+    let demo = document.querySelector('.demo');
+
+    function print(matrix) {
+      for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < matrix[i].length; j++) {
+          demo.innerHTML = demo.innerHTML + '   ' + matrix[i][j];
+        }
+        demo.innerHTML = demo.innerHTML + '</br>'
+      }
+    } 
+    
+    function transpose(matrix) {
+      let demo = document.querySelector('.demo');
+      for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < i; j++) {
+          const temp = matrix[i][j];
+          matrix[i][j] = matrix[j][i];
+          matrix[j][i] = temp;
+        }
+      }
+    } 
+
+    function tranposeAndPrint() {
+      demo.innerHTML = '';
+      print(matrix);
+      demo.innerHTML = demo.innerHTML + '<br>';
+      transpose(matrix);
+      print(matrix);
+    }
+
+    // init 
+    print(matrix)
+  </script>
+</body>
+</html>
